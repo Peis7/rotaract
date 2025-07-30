@@ -1,0 +1,34 @@
+# Ignore Laravel vendor & environment files
+laravel/vendor/
+laravel/node_modules/
+laravel/public/storage
+laravel/storage/*.key
+laravel/.env
+laravel/.phpunit.result.cache
+
+# Laravel cache & logs
+laravel/public/hot
+laravel/storage/logs/*.log
+laravel/storage/framework/cache/data
+laravel/storage/framework/sessions
+laravel/storage/framework/testing
+laravel/storage/framework/views
+
+# Composer & NPM locks (optional)
+laravel/composer.lock
+laravel/package-lock.json
+laravel/yarn.lock
+
+# IDE / Editor
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Backup env files
+laravel/.env.backup
+laravel/.env.*
