@@ -31,11 +31,13 @@ services:
     image: mysql:8.0
     container_name: mysql_db
     restart: unless-stopped
+    env_file:
+      - .env
     environment:
-      MYSQL_DATABASE: laravel
-      MYSQL_ROOT_PASSWORD: secret
-      MYSQL_USER: laravel
-      MYSQL_PASSWORD: laravel
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
     ports:
       - "3308:3306"
     volumes:
@@ -60,3 +62,5 @@ networks:
 
 volumes:
   db_data:
+
+

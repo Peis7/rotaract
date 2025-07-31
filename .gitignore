@@ -1,3 +1,6 @@
+
+.env*
+
 # Ignore Laravel vendor & environment files
 laravel/vendor/
 laravel/node_modules/
