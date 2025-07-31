@@ -9,6 +9,8 @@ services:
     restart: unless-stopped
     volumes:
       - ./laravel:/var/www
+      - /var/www/vendor
+      - /var/www/node_modules
     networks:
       - laravel
     depends_on:
