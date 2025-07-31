@@ -9,14 +9,15 @@ COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
 
 WORKDIR /var/www
 
-# Copiar composer files primero
+# Copiar composer primero
 COPY ./laravel/composer.json ./laravel/composer.lock ./
 RUN composer install --no-interaction --prefer-dist --optimize-autoloader --no-scripts
 
-# Copiar el resto
+# Copiar el resto de la app
 COPY ./laravel ./
 
-# Ejecutar los scripts de artisan ahora que existe
+# Ejecutar scripts
 RUN composer dump-autoload --optimize && php artisan package:discover
 
-RUN chown -R www-data:www-data /var/www
+# Permisos solo en carpetas necesarias
+RUN chown -R www-data:www-data storage bootstrap/cache
